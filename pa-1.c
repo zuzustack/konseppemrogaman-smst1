@@ -3,6 +3,7 @@
 #include <math.h>
 #define MAXMHS 30
 #define MAXNAMAMHS 255
+// Buat Struct
 struct Mahasiswa
 {
     char nama[MAXNAMAMHS], kodeNilai[2];
@@ -10,9 +11,11 @@ struct Mahasiswa
     int max, min;
 };
 
+// Membuat variable global
 struct Mahasiswa kelas_b[MAXMHS];
 int current = 0;
 
+// Deklarasi fungsi
 void tambahMahasiswa();
 void tampilkanMahasiswa();
 void rankingKelas();
@@ -230,6 +233,7 @@ void tambahMahasiswa()
         }
         mhs.min = tmp;
 
+        // Rata Rata
         mhs.rata_rata = (mhs.eval1 + mhs.eval2 + mhs.eval3 + mhs.nilai_uas) / 4;
 
         // Notasi Nilai
@@ -284,11 +288,13 @@ void rankingKelas()
     struct Mahasiswa tempMhs;
     struct Mahasiswa cpyKelas_b[MAXMHS];
 
+    // Copy Array
     for (int i = 0; i < current; i++)
     {
         cpyKelas_b[i] = kelas_b[i];
     }
 
+    // Bubble Sort
     for (int i = 0; i < current; i++)
     {
         for (int j = 0; j < current; j++)
