@@ -26,11 +26,12 @@ int main()
     int pil;
     while (1)
     {
-        printf("Program Mahasiswa\n");
+        printf("Program BAAK Mahasiswa\n");
+        printf("Program dibuat oleh: Muhamad Ridwan Saputra - 3124600031\n");
         printf("1. Tambah Mahasiswa\n");
         printf("2. Tampilkan Mahasiswa\n");
         printf("3. Ranking Kelas\n");
-        printf("4. Terendah Tertinggi\n");
+        printf("4. Option Lain\n");
         printf("0. Keluar Program\n");
         printf("Masukan pilihanmu: ");
         scanf("%d", &pil);
@@ -50,10 +51,10 @@ int main()
             terendahTertinggi();
             break;
         case 0:
-            printf("Terimakasihh Brooo\n");
+            printf("Terimakasihh Telah Mencoba :D\n");
             return 0;
         default:
-            printf("Pilihan tidak ditemukan coba lagi\n");
+            printf("Pilihan tidak ditemukan coba lagi\n\n\n");
             break;
         }
     }
@@ -63,20 +64,31 @@ void terendahTertinggi()
 {
     int input;
     struct Mahasiswa min, max;
-    printf("1. Min|Max Eval-1\n");
-    printf("2. Min|Max Eval-2\n");
-    printf("3. Min|Max Eval-3\n");
-    printf("4. Min|Max Nilai-UAS\n");
-    printf("4. Min|Max Rata-rata\n");
+    printf("1. Rata-rata Semua Mahasiswa\n");
+    printf("2. Min|Max Eval-1\n");
+    printf("3. Min|Max Eval-2\n");
+    printf("4. Min|Max Eval-3\n");
+    printf("5. Min|Max Nilai-UAS\n");
+    printf("6. Min|Max Rata-rata\n");
     printf("0. Batal\n");
     printf("Pilih-pilihanmu: ");
     scanf("%d", &input);
 
     min = kelas_b[0];
+    float total = 0;
     max = kelas_b[0];
     switch (input)
     {
     case 1:
+        for (int i = 0; i < current; i++)
+        {
+            total += kelas_b[i].rata_rata;
+        }
+        total = total / current;
+        printf("Rata-Rata Nilai Semua Mahasiswa: %.2f\n", total);
+
+        break;
+    case 2:
         for (int i = 1; i < current; i++)
         {
             // Max
@@ -96,7 +108,7 @@ void terendahTertinggi()
         printf("Nilai Eval-1 Terendah: %s\n", min.nama);
 
         break;
-    case 2:
+    case 3:
         for (int i = 1; i < current; i++)
         {
             // Max
@@ -114,7 +126,7 @@ void terendahTertinggi()
         printf("Nilai Eval-2 Tertinggi: %s\n", max.nama);
         printf("Nilai Eval-2 Terendah: %s\n", min.nama);
         break;
-    case 3:
+    case 4:
         for (int i = 1; i < current; i++)
         {
             // Max
@@ -132,7 +144,7 @@ void terendahTertinggi()
         printf("Nilai Eval-3 Tertinggi: %s\n", max.nama);
         printf("Nilai Eval-3 Terendah: %s\n", min.nama);
         break;
-    case 4:
+    case 5:
         for (int i = 1; i < current; i++)
         {
             // Max
@@ -150,7 +162,7 @@ void terendahTertinggi()
             printf("Nilai UAS Terendah: %s\n", min.nama);
         }
         break;
-    case 5:
+    case 6:
         for (int i = 1; i < current; i++)
         {
             // Max
